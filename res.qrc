@@ -6,5 +6,7 @@
         <file>img/Wifi.png</file>
         <file>img/gauge</file>
         <file>img/obd.png</file>
+        <file>img/gauge-needle.png</file>
+        <file>img/step10.gif</file>
     </qresource>
 </RCC>

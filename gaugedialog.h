@@ -18,6 +18,8 @@ public:
 private slots:
     void on_GaugeDialog_finished(int result);
 
+    void on_forward_button_clicked();
+
 private:
     Ui::GaugeDialog *ui;
 };
