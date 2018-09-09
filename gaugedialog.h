@@ -1,0 +1,25 @@
+#ifndef GAUGEDIALOG_H
+#define GAUGEDIALOG_H
+
+#include <QDialog>
+
+namespace Ui {
+class GaugeDialog;
+}
+
+class GaugeDialog : public QDialog
+{
+    Q_OBJECT
+
+public:
+    explicit GaugeDialog(QWidget *parent = nullptr);
+    ~GaugeDialog();
+
+private slots:
+    void on_GaugeDialog_finished(int result);
+
+private:
+    Ui::GaugeDialog *ui;
+};
+
+#endif // GAUGEDIALOG_H

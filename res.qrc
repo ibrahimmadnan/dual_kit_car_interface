@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/img">
+        <file>img/camera-icon--a-photo-on-flickriver-14.jpg</file>
+        <file>img/mp3.png</file>
+        <file>img/settings-symbol-of-a-cross-of-tools_318-72799.jpg</file>
+        <file>img/Wifi.png</file>
+        <file>img/gauge</file>
+        <file>img/obd.png</file>
+    </qresource>
+</RCC>
