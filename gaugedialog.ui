@@ -6,53 +6,40 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>516</width>
-    <height>391</height>
+    <width>572</width>
+    <height>454</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
   <property name="styleSheet">
    <string notr="true"/>
   </property>
-  <widget class="QLCDNumber" name="lcdNumber">
-   <property name="geometry">
-    <rect>
-     <x>280</x>
-     <y>270</y>
-     <width>81</width>
-     <height>31</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLabel" name="gauge_label">
-   <property name="geometry">
-    <rect>
-     <x>-10</x>
-     <y>80</y>
-     <width>531</width>
-     <height>311</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">border-image:url(:/img/img/step10.gif)</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
   <widget class="QLabel" name="needle_label">
    <property name="geometry">
     <rect>
-     <x>140</x>
-     <y>140</y>
-     <width>240</width>
-     <height>240</height>
+     <x>120</x>
+     <y>105</y>
+     <width>255</width>
+     <height>255</height>
     </rect>
    </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
    <property name="styleSheet">
-    <string notr="true">border-image:url(:/img/img/gauge-needle.png)</string>
+    <string notr="true">border: 1px solid red;
+</string>
    </property>
    <property name="text">
     <string/>
@@ -77,8 +64,8 @@
   <widget class="QPushButton" name="back_button">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>20</y>
+     <x>410</x>
+     <y>50</y>
      <width>89</width>
      <height>25</height>
     </rect>
@@ -87,10 +74,31 @@
     <string>Backward</string>
    </property>
   </widget>
-  <zorder>gauge_label</zorder>
-  <zorder>lcdNumber</zorder>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>60</y>
+     <width>340</width>
+     <height>340</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image:url(:/img/img/gauge-temperature-f-black.png)</string>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
+  </widget>
   <zorder>forward_button</zorder>
   <zorder>back_button</zorder>
+  <zorder>label</zorder>
   <zorder>needle_label</zorder>
  </widget>
  <resources/>

@@ -8,5 +8,13 @@
         <file>img/obd.png</file>
         <file>img/gauge-needle.png</file>
         <file>img/step10.gif</file>
+        <file>img/needle.png</file>
+        <file>img/needle1.png</file>
+        <file>img/drag_pointer.jpg</file>
+        <file>img/drag_pointer.png</file>
+        <file>img/gauge-needle-png-4.png</file>
+        <file>img/gauge-temperature-f-black.png</file>
+        <file>img/meter_needle.png</file>
+        <file>img/pointer.png</file>
     </qresource>
 </RCC>
