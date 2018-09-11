@@ -22,8 +22,8 @@
   <widget class="QLabel" name="needle_label">
    <property name="geometry">
     <rect>
-     <x>120</x>
-     <y>105</y>
+     <x>150</x>
+     <y>160</y>
      <width>255</width>
      <height>255</height>
     </rect>
@@ -38,8 +38,7 @@
     <bool>false</bool>
    </property>
    <property name="styleSheet">
-    <string notr="true">border: 1px solid red;
-</string>
+    <string notr="true"/>
    </property>
    <property name="text">
     <string/>
@@ -77,10 +76,10 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>60</y>
-     <width>340</width>
-     <height>340</height>
+     <x>0</x>
+     <y>100</y>
+     <width>531</width>
+     <height>361</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -90,16 +89,27 @@
     </sizepolicy>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image:url(:/img/img/gauge-temperature-f-black.png)</string>
+    <string notr="true">border-image:url(:/img/img/step22.gif)</string>
    </property>
    <property name="text">
     <string>TextLabel</string>
+   </property>
+  </widget>
+  <widget class="QLCDNumber" name="lcdNumber">
+   <property name="geometry">
+    <rect>
+     <x>430</x>
+     <y>380</y>
+     <width>91</width>
+     <height>31</height>
+    </rect>
    </property>
   </widget>
   <zorder>forward_button</zorder>
   <zorder>back_button</zorder>
   <zorder>label</zorder>
   <zorder>needle_label</zorder>
+  <zorder>lcdNumber</zorder>
  </widget>
  <resources/>
  <connections/>

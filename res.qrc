@@ -16,5 +16,6 @@
         <file>img/gauge-temperature-f-black.png</file>
         <file>img/meter_needle.png</file>
         <file>img/pointer.png</file>
+        <file>img/step22.gif</file>
     </qresource>
 </RCC>

@@ -13,6 +13,7 @@ class GaugeDialog : public QDialog
 
 public:
     explicit GaugeDialog(QWidget *parent = nullptr);
+    void rotate(int angle);
     ~GaugeDialog();
 
 private slots:
