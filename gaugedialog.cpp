@@ -15,6 +15,7 @@
 
 
 int angle_to_speed(int angle);
+int speed_to_angle(int speed);
 
 static int rotation_value=INPUT_START;
 GaugeDialog::GaugeDialog(QWidget *parent) :
@@ -23,7 +24,8 @@ GaugeDialog::GaugeDialog(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->needle_label->setPixmap(QPixmap(NEEDLE_PATH));
-rotate(rotation_value);
+//rotate(rotation_value);
+rotate(speed_to_angle(0));
 
 }
 
@@ -36,12 +38,19 @@ GaugeDialog::~GaugeDialog()
 void GaugeDialog::on_forward_button_clicked()
 {
 
-for (int i=rotation_value;i<INPUT_END;i++){
-        rotate(i);
-        ui->lcdNumber->display(QString::number(angle_to_speed(i)));
+//for (int i=rotation_value;i<INPUT_END;i++){
+//        rotate(i);
+//        ui->lcdNumber->display(QString::number(angle_to_speed(i)));
+//        QThread::msleep(10);
+//}
+
+
+    /* test speed */
+for (int i=0;i<120;i++){
+        rotate(speed_to_angle(i));
+        ui->lcdNumber->display(QString::number(i));
         QThread::msleep(10);
 }
-
 
    // }
 
@@ -83,4 +92,19 @@ int angle_to_speed(int angle)
 
     speed = output_start + (((output_end - output_start) / (input_end - input_start)) * (angle - input_start));
     return (int)speed;
+}
+
+int speed_to_angle(int speed)
+{
+
+    float angle;
+    float input_start=INPUT_START;
+    float input_end=INPUT_END;
+    float output_start=OUTPUT_START;
+    float output_end=OUTPUT_END;
+
+    angle = input_start + (((input_end - input_start) / (output_end - output_start)) * (speed - output_start));
+    return (int)angle;
+
+
 }
