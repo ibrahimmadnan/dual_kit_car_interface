@@ -8,14 +8,15 @@
 #include <QThread>
 
 #define NEEDLE_PATH ":/img/img/drag_pointer.png"
-#define INPUT_START 106.0
-#define INPUT_END 372.0
-#define OUTPUT_START    10.0
-#define OUTPUT_END      140.0
+#define INPUT_START 156.0
+#define INPUT_END 428.0
+#define OUTPUT_START    0.0
+#define OUTPUT_END      120.0
+
+
 int angle_to_speed(int angle);
 
-static int rotation_value=106;
-//static QPixmap * p_needle;
+static int rotation_value=INPUT_START;
 GaugeDialog::GaugeDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::GaugeDialog)
@@ -35,28 +36,7 @@ GaugeDialog::~GaugeDialog()
 void GaugeDialog::on_forward_button_clicked()
 {
 
-  //  for (int i=0;i<360;i++)
-  //  {
-//  QPixmap needle_pix(NEEDLE_PATH);
-//  QPixmap rotate(needle_pix.size());
-//  rotate.fill(Qt::transparent);
-
-//  QPainter p(&rotate);
-
-//p.setRenderHint(QPainter::Antialiasing);
-//p.setRenderHint(QPainter::HighQualityAntialiasing);
-//p.setRenderHint(QPainter::SmoothPixmapTransform);
-
-//p.translate(rotate.size().width()/2,rotate.size().height()/2);
-//p.rotate(rotation_value+=1);
-//p.translate(-rotate.size().width()/2,-rotate.size().height()/2);
-//p.drawPixmap(0,0,needle_pix);
-//p.end();
-//ui->needle_label->setPixmap(rotate);
-//ui->needle_label->repaint();
-//372
-
-for (int i=rotation_value;i<372;i++){
+for (int i=rotation_value;i<INPUT_END;i++){
         rotate(i);
         ui->lcdNumber->display(QString::number(angle_to_speed(i)));
         QThread::msleep(10);
