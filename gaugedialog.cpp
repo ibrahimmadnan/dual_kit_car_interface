@@ -86,7 +86,8 @@ void GaugeDialog::rotate(int angle)
   p.translate(-rotate.size().width()/2,-rotate.size().height()/2);
   p.drawPixmap(0,0,needle_pix);
   p.end();
-  ui->needle_label->setPixmap(rotate);
+
+  ui->needle_label->setPixmap(rotate.scaled(ui->needle_label->width(),ui->needle_label->height(),Qt::KeepAspectRatio));
   ui->needle_label->repaint();
 
 
