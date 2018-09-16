@@ -6,18 +6,16 @@
 #include <QPainter>
 #include <QTransform>
 #include <QThread>
+#include "gauge_conversions.h"
 
 #define NEEDLE_PATH ":/img/img/drag_pointer.png"
-#define INPUT_START 156.0
-#define INPUT_END 428.0
-#define OUTPUT_START    0.0
-#define OUTPUT_END      120.0
+
 
 
 int angle_to_speed(int angle);
 int speed_to_angle(int speed);
 
-static int rotation_value=INPUT_START;
+ extern int rotation_value;;
 GaugeDialog::GaugeDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::GaugeDialog)
@@ -78,33 +76,6 @@ void GaugeDialog::rotate(int angle)
 
   ui->needle_label->setPixmap(rotate.scaled(ui->needle_label->width(),ui->needle_label->height(),Qt::KeepAspectRatio));
   ui->needle_label->repaint();
-
-
-}
-
-int angle_to_speed(int angle)
-{
-    float speed;
-    float input_start=INPUT_START;
-    float input_end=INPUT_END;
-    float output_start=OUTPUT_START;
-    float output_end=OUTPUT_END;
-
-    speed = output_start + (((output_end - output_start) / (input_end - input_start)) * (angle - input_start));
-    return (int)speed;
-}
-
-int speed_to_angle(int speed)
-{
-
-    float angle;
-    float input_start=INPUT_START;
-    float input_end=INPUT_END;
-    float output_start=OUTPUT_START;
-    float output_end=OUTPUT_END;
-
-    angle = input_start + (((input_end - input_start) / (output_end - output_start)) * (speed - output_start));
-    return (int)angle;
 
 
 }

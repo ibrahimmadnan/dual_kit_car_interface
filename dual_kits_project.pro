@@ -25,7 +25,8 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    gaugedialog.cpp
+    gaugedialog.cpp \
+    gauge_conversions.cpp
 
 HEADERS += \
         mainwindow.h \
