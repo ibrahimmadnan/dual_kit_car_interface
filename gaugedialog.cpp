@@ -7,9 +7,38 @@
 #include <QTransform>
 #include <QThread>
 #include "gauge_conversions.h"
+#include "XPlaneUDPClient.h"
+
+#include <QDebug>
+#include <QString>
+#include <string.h>
+#include "XPlaneBeaconListener.h"
+using namespace std;
+
 
 #define NEEDLE_PATH ":/img/img/drag_pointer.png"
 
+// our callback for changed values.
+string host;
+uint16_t port;
+static bool found = false;
+
+void receiverCallbackFloat(std::string dataref, float value) {
+    qDebug() << "receiverCallbackFloat got ["<< QString::fromStdString(dataref) << "] and [" << QString::number(value);
+
+}
+
+void receiverCallbackString(std::string dataref, std::string value) {
+     qDebug() << "receiverCallbackString got [" <<QString::fromStdString(dataref) << "] and [" << &value<< "]" ;
+}
+
+void receiverBeaconCallback(XPlaneBeaconListener::XPlaneServer server,
+        bool exists) {
+    qDebug() << "receiverBeaconCallback got [" << QString::fromStdString(server.toString()) << " is " << (exists ? "alive" : "dead") << "]";
+    host = server.host;
+    port = server.receivePort;
+    found = true;
+}
 
 
 int angle_to_speed(int angle);
@@ -78,4 +107,65 @@ void GaugeDialog::rotate(int angle)
   ui->needle_label->repaint();
 
 
+}
+
+
+
+void GaugeDialog::on_button_udp_clicked()
+{
+
+  //  XPlaneBeaconListener* test = new XPlaneBeaconListener ();
+
+    XPlaneBeaconListener::getInstance()->registerNotificationCallback(
+            std::bind(receiverBeaconCallback, std::placeholders::_1,
+                    std::placeholders::_2));
+    XPlaneBeaconListener::getInstance()->setDebug(0);
+
+    qDebug() << "Press Control-C to abort.";
+
+    // wait for a server
+    while (!found) {
+        //sleep (1);
+         QThread::msleep(1000);
+    }
+
+    qDebug() << "Found server " <<QString::fromStdString(host) << ":" << QString::number(port);
+
+
+    XPlaneUDPClient xp(host, port,
+            std::bind(receiverCallbackFloat, std::placeholders::_1,
+                    std::placeholders::_2),
+            std::bind(receiverCallbackString, std::placeholders::_1,
+                    std::placeholders::_2));
+    xp.setDebug(0);
+
+    xp.subscribeDataRef("sim/aircraft/view/acf_descrip[0][40]", 1);
+    xp.subscribeDataRef("sim/cockpit2/engine/actuators/throttle_ratio[0]", 10);
+
+    xp.sendCommand("sim/flight_controls/flaps_down");
+    xp.sendCommand("sim/flight_controls/flaps_down");
+
+    float r = 0;
+    float i = 0.01;
+
+    while (1) {
+    //	usleep (1000 * 50);
+ QThread::msleep(50);
+        xp.setDataRef("sim/multiplayer/controls/engine_throttle_request[0]", r);
+        r += i;
+
+        if (r > 1) {
+            i = -0.01;
+        } else if (r < 0) {
+            i = 0.01;
+        }
+
+    }
+
+
+}
+
+void GaugeDialog::on_testdebug_clicked()
+{
+    qDebug()<< "testing debug";
 }

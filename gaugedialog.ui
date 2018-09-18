@@ -130,12 +130,40 @@
     <string/>
    </property>
   </widget>
+  <widget class="QPushButton" name="button_udp">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>60</y>
+     <width>89</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Test UDP</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="testdebug">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>140</y>
+     <width>89</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>debug</string>
+   </property>
+  </widget>
   <zorder>label_2</zorder>
   <zorder>forward_button</zorder>
   <zorder>back_button</zorder>
   <zorder>label</zorder>
   <zorder>lcdNumber</zorder>
   <zorder>needle_label</zorder>
+  <zorder>button_udp</zorder>
+  <zorder>testdebug</zorder>
  </widget>
  <resources/>
  <connections/>

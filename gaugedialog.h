@@ -2,7 +2,7 @@
 #define GAUGEDIALOG_H
 
 #include <QDialog>
-
+#include "XPlaneUDPClient.h"
 namespace Ui {
 class GaugeDialog;
 }
@@ -21,8 +21,14 @@ private slots:
 
     void on_forward_button_clicked();
 
+    void on_button_udp_clicked();
+
+    void on_testdebug_clicked();
+
 private:
     Ui::GaugeDialog *ui;
+ //   XPlaneUDPClient * uclient;
+ //   void startudpclient(void);
 };
 
 #endif // GAUGEDIALOG_H

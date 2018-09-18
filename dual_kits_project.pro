@@ -26,11 +26,17 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     gaugedialog.cpp \
-    gauge_conversions.cpp
+    gauge_conversions.cpp \
+    libXPlane-UDP-Client/src/libsrc/XPlaneUDPClient.cpp \
+    libXPlane-UDP-Client/src/libsrc/XPUtils.cpp \
+    libXPlane-UDP-Client/src/libsrc/XPlaneBeaconListener.cpp
 
 HEADERS += \
         mainwindow.h \
-    gaugedialog.h
+    gaugedialog.h \
+    libXPlane-UDP-Client/src/libsrc/XPlaneUDPClient.h \
+    libXPlane-UDP-Client/src/libsrc/XPUtils.h \
+    libXPlane-UDP-Client/src/libsrc/XPlaneBeaconListener.h
 
 FORMS += \
         mainwindow.ui \

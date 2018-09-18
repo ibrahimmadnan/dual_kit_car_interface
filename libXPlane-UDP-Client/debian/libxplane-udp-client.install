@@ -1,0 +1,2 @@
+/usr/lib/${LIBNAME}.so.${MAJORVERSION}.${MINORVERSION}
+/usr/lib/${LIBNAME}.so.${MAJORVERSION}

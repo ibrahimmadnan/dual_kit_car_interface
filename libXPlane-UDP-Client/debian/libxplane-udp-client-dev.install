@@ -1,0 +1,5 @@
+/usr/include/XPlaneUDPClient.h
+/usr/include/XPlaneBeaconListener.h
+/usr/lib/${LIBNAME}.so
+/usr/share/doc/${PACKAGE}${MAJORVERSION}-dev/html
+/usr/share/doc/${PACKAGE}${MAJORVERSION}-dev/latex
